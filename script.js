@@ -4,11 +4,13 @@ const chatIcon = document.querySelector('.chat_icon');
 
 
 chatIcon.addEventListener('click', ()=>{
-    chatWindow.style.display = "flex";
+    // chatWindow.style.display = "flex";
+    chatWindow.classList.add('show');
     chatIcon.style.display = "none";
 })
 
 closeIcon.addEventListener('click', () => {
-    chatWindow.style.display = "none";
+    // chatWindow.style.display = "none";
+    chatWindow.classList.remove('show');
     chatIcon.style.display = "flex";
 })
