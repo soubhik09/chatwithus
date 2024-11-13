@@ -27,10 +27,10 @@ html, body{
     flex-direction: column;
     right: 30px;
     bottom: 30px;
-    /* opacity: 1;
+    opacity: 1;
     transform: scale(0.8);
     visibility: hidden;
-    transition: opacity 0.5s ease, transform 0.5s ease; */
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .chat_window.show {
