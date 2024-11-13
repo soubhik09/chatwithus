@@ -18,7 +18,7 @@ closeIcon.addEventListener('click', () => {
     chatIcon.style.display = "flex";
 })
 
-sendBtn.addEventListener('click', () => {
+const sendMessage =  () => {
     let inputValue = input.value;
     chatBox.innerHTML += `
                 <div class="right">
@@ -27,5 +27,15 @@ sendBtn.addEventListener('click', () => {
                 </div> 
     `
     input.value = ""
+
+    chatBox.scrollTop = chatBox.scrollHeight;
         
+}
+
+sendBtn.addEventListener('click', sendMessage);
+
+input.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' && !(input.value === '')){
+        sendMessage();
+    }
 })
