@@ -18,21 +18,38 @@ closeIcon.addEventListener('click', () => {
     chatIcon.style.display = "flex";
 })
 
+let flag = true; // This is for hide S after one message
+
 const sendMessage =  () => {
     let inputValue = input.value;
-    chatBox.innerHTML += `
-                <div class="right">
-                    <p class="text">${inputValue}</p>
-                    <div class="circle">S</div>
-                </div> 
-    `
+    if(flag){
+        chatBox.innerHTML += `
+                    <div class="right">
+                        <p class="text">${inputValue}</p>
+                        <div class="circle">S</div>
+                    </div> 
+        `
+        flag = false;
+    }else{
+        chatBox.innerHTML += `
+        <div class="right">
+            <p class="text">${inputValue}</p>
+            <div class="circle hidden">S</div>  
+        </div> 
+        `
+    }
+
     input.value = ""
 
     chatBox.scrollTop = chatBox.scrollHeight;
         
 }
 
-sendBtn.addEventListener('click', sendMessage);
+sendBtn.addEventListener('click', () => {
+    if(!(input.value === '')){
+        sendMessage();
+    }
+});
 
 input.addEventListener('keydown', (e) => {
     if(e.key === 'Enter' && !(input.value === '')){
